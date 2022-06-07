@@ -1,18 +1,12 @@
 import './App.css';
-import CompanyTable from './CompanyTable.js';
+import CompanyList from './CompanyList.js';
 import { useEffect, useState } from 'react';
 
 require("es6-promise").polyfill();
 require("isomorphic-fetch");
 
-function App() {
+function App2() {
   const [data, setData] = useState([]);
-  const [countrySearch, setCountrySearch] = useState("");
-  const [industrySearch, setIndustrySearch] = useState("");
-  const [order, setOrder] = useState("Ascend");
-  const [sortTerm1, setSortTerm1] = useState("");
-  const [order2, setOrder2] = useState("Ascend");
-  const [sortTerm2, setSortTerm2] = useState("");
 
   useEffect(() => {
     const url = "https://dujour.squiz.cloud/developer-challenge/data";
@@ -22,7 +16,8 @@ function App() {
       .catch((error) => console.log(error));
   },[]) 
 
-  function search(rows){
+  /*function search(rows){
+    const columns = rows[0] && Object.keys(rows[0]);
     return rows.filter(row => 
       row.country.toLowerCase().indexOf(countrySearch.toLowerCase()) > -1 &&
       row.industry.toLowerCase().indexOf(industrySearch.toLowerCase()) > -1
@@ -44,26 +39,16 @@ function App() {
         setData(sorted);
         setOrder("Ascend");
     }
-  }
+  }*/
 
   return (
     <div>
-
-      <div className = 'column filterSelect'> 
-        <img src = {require('./squizLogo.png')}></img>
-        <h2>Filter Options:</h2>
-        Country: <input type = "text" value = {countrySearch} onChange = {(e) => setCountrySearch(e.target.value)}/>
-        Industry: <input type = "text" value = {industrySearch} onChange = {(f) => setIndustrySearch(f.target.value)}/>
-      </div>
-      <div className='column tableDisplay'> 
-        <CompanyTable 
-          data = {search(data)}
-          sortBy = {sortBy}
-        />
-      </div>
+      {data.map((company) => 
+        <CompanyList company = {company} />
+      )}
     </div>
     
   );
 }
 
-export default App;
+export default App2;

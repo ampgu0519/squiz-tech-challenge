@@ -1,0 +1,19 @@
+table{
+    width: 95%;
+    margin: 20px;
+    margin-right:20px;
+    border-collapse: collapse;
+    font-size:75%;
+}
+th{
+    height: 70px;
+}
+table, th, td{
+    border:1px solid;
+}
+tr:nth-of-type(odd){
+    background:#eee;
+}
+tr{
+    padding:10px;
+}
