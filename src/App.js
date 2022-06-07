@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import CompanyTable from './CompanyTable.js';
 import { useEffect, useState } from 'react';
 
@@ -10,9 +10,6 @@ function App() {
   const [countrySearch, setCountrySearch] = useState("");
   const [industrySearch, setIndustrySearch] = useState("");
   const [order, setOrder] = useState("Ascend");
-  const [sortTerm1, setSortTerm1] = useState("");
-  const [order2, setOrder2] = useState("Ascend");
-  const [sortTerm2, setSortTerm2] = useState("");
 
   useEffect(() => {
     const url = "https://dujour.squiz.cloud/developer-challenge/data";
@@ -50,7 +47,7 @@ function App() {
     <div>
 
       <div className = 'column filterSelect'> 
-        <img src = {require('./squizLogo.png')}></img>
+        <img src = {require('./squizLogo.png')} alt = 'Squiz Logo'></img>
         <h2>Filter Options:</h2>
         Country: <input type = "text" value = {countrySearch} onChange = {(e) => setCountrySearch(e.target.value)}/>
         Industry: <input type = "text" value = {industrySearch} onChange = {(f) => setIndustrySearch(f.target.value)}/>

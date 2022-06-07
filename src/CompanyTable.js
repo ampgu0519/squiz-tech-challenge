@@ -1,9 +1,5 @@
-import React, {useState} from "react";
-import './CompanyTable.css'
+import './CompanyTable.scss'
 
-function Capitalize(str){
-    return str[0].toUpperCase + str[1];
-}
 function CompanyTable(props){
 
     const columns = props.data[0] && Object.keys(props.data[0]);
